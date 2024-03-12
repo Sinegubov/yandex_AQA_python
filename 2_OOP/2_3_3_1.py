@@ -38,6 +38,7 @@ class TestCase:
     def is_ordinary_case(test_case):
         return not test_case.get('is_automated')
 
+
 class AutomatedTestCase:
 
     def __init__(self, name, steps, e_result, result):
@@ -52,7 +53,7 @@ class AutomatedTestCase:
     # допиши метод так, чтобы он был статическим и проверял, является ли
     # тест-кейс автоматизированным
     @staticmethod
-    def is_ordinary_case(test_case):
+    def is_automated_case(test_case):
         return test_case.get('is_automated')
 
 
