@@ -8,28 +8,20 @@ class EmployeeSalary:
         self.email = email
 
     @classmethod
-    def get_hours(cls, hours, rest_days):
+    def get_hours(cls, name, hours, rest_days, email):
         if not hours:
-            return cls(hours=((7 - rest_days) * 8))
+            hours = (7 - rest_days) * 8
+        return cls(name, hours, rest_days, email)
 
     @classmethod
-    def get_email(cls, name, email):
+    def get_email(cls, name, hours, rest_days, email):
         if not email:
-            return cls(name, email=f"{name}@email.com")
+            email = f"{name}@email.com"
+            return cls(name, hours, rest_days, email)
 
     @classmethod
     def set_hourly_payment(cls, payment):
-        return cls(hourly_payment=payment)
+        cls.hourly_payment = payment
 
     def salary(self):
         return self.hours * self.hourly_payment
-
-
-employee1 = EmployeeSalary('John', 40, 1, 'asd')
-print(employee1.salary())  # Ожидаемый результат: 16000
-print(employee1.email)
-# employee2 = EmployeeSalary.get_hours('Alice', 2)
-# print(employee2.salary())  # Ожидаемый результат: 2400
-#
-# employee3 = EmployeeSalary.get_email('Bob')
-# print(employee3.email)  # Ожидаемый результат: 'Bob@email.com'
