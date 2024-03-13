@@ -22,8 +22,6 @@ class Football(Results):
 
 
 class Hockey(Results):
-    def __init__(self, victories, draws, losses):
-        super().__init__(victories, draws, losses)
 
     def number_of_wins(self):
         return f'Хоккейных побед: {self.victories}'
