@@ -70,17 +70,11 @@ class OnlineSalesRegisterCollector:
         result_tax = self.ten_percent_tax_calculation() + self.twenty_percent_tax_calculation()
         return result_tax
 
-
-check = OnlineSalesRegisterCollector()
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-check.add_item_to_cheaue('печенье')
-print(check.check_amount())
-print(check.total_tax())
+    @staticmethod
+    def get_telephone_number(telephone_number):
+        if type(telephone_number) is not int:
+            raise ValueError('Необходимо ввести цифры')
+        elif len(str(telephone_number)) > 10:
+            raise ValueError('Необходимо ввести 10 цифр после "+7"')
+        else:
+            return f'+7{telephone_number}'
